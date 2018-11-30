@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <mamis_extensions translate="label" module="mamis_googlecustomerreviews">
+            <label>Mamis Extensions</label>
+            <sort_order>100</sort_order>
+        </mamis_extensions>
+    </tabs>
+    <sections>
+        <mamis_googlecustomerreviews translate="label" module="mamis_googlecustomerreviews">
+            <label>Google Customer Reviews</label>
+            <tab>mamis_extensions</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>500</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>0</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <merchant_id translate="label comment">
+                            <label>Merchant Id</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Your Merchant Center ID. You can get this value from the Google Merchant Center.</comment>
+                        </merchant_id>
+                    </fields>
+                </general>
+                <badge translate="label">
+                    <label>GCR Badge</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>20</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <active translate="label">
+                           <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <badge_position translate="label">
+                            <label>Badge Position</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mamis_googlecustomerreviews/system_config_source_badge_position</source_model>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </badge_position>
+                        <badge_container translate="label comment">
+                            <depends>
+                                <badge_position>INLINE</badge_position>
+                            </depends>
+                            <label>Badge Container</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>The HTML ID of the badge container (without the leading #)</comment>
+                        </badge_container>
+                    </fields>
+                </badge>
+                <opt_in translate="label">
+                    <label>GCR Opt-In</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>30</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>0</show_in_store>
+                    <fields>
+                        <active translate="label">
+                           <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                        </active>
+                        <estimated_delivery_days translate="label comment">
+                            <label>Estimated Delivery Days</label>
+                            <frontend_type>text</frontend_type>
+                            <validate>validate-number</validate>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>The estimated date on which you expect delivery of the order to the customer. If the order contains multiple items, select the latest delivery date. If you message a range of days, please include the later end of the range. (e.g., 7 days if your range is 5-7 days).</comment>
+                        </estimated_delivery_days>
+                        <opt_in_style translate="label">
+                            <label>Opt-In Style</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>mamis_googlecustomerreviews/system_config_source_optin_style</source_model>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Specifies how the opt-in module's dialog box is displayed.</comment>
+                        </opt_in_style>
+                        <send_products translate="label">
+                           <label>Send products data?</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <comment>Choose whether to send details of the products contained in the order to google or not.</comment>
+                        </send_products>
+                    </fields>
+                </opt_in>
+            </groups>
+        </mamis_googlecustomerreviews>
+    </sections>
+</config>

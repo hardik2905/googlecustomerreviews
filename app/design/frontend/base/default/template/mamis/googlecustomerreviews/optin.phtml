@@ -1,0 +1,44 @@
+<?php
+/**
+ * Mamis.IT
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is available through the world-wide-web at this URL:
+ * http://www.mamis.com.au/licencing
+ *
+ * @category   Mamis
+ * @copyright  Copyright (c) 2016 by Mamis.IT Pty Ltd (http://www.mamis.com.au)
+ * @author     Matthew Muscat <matthew@mamis.com.au>
+ * @license    http://www.mamis.com.au/licencing
+ */
+?>
+<?php
+    $order = $this->getOrder();
+    $orderItems = $order->getAllVisibleItems();
+?>
+<!-- BEGIN GCR Opt-in Module Code -->
+<script src="https://apis.google.com/js/platform.js?onload=renderOptIn"
+  async defer>
+</script>
+
+<script>
+  window.renderOptIn = function() {
+    window.gapi.load('surveyoptin', function() {
+      window.gapi.surveyoptin.render(
+        {
+          // REQUIRED
+          "merchant_id":"<?php echo $this->jsQuoteEscape($this->getMerchantId()) ?>",
+          "order_id": "<?php echo $order->getIncrementId() ?>",
+          "email": "<?php echo $order->getCustomerEmail() ?>",
+          "delivery_country": "<?php echo $this->getDeliveryCountry($order) ?>",
+          "estimated_delivery_date": "<?php echo $this->getEstimatedDeliveryDate($order) ?>",
+          // OPTIONAL
+          "opt_in_style": "<?php echo $this->jsQuoteEscape($this->getOptInStyle()) ?>",
+          "products": <?php echo $this->getOrderProducts($orderItems) ?>,
+        });
+     });
+  }
+</script>
+<!-- END GCR Opt-in Module Code -->

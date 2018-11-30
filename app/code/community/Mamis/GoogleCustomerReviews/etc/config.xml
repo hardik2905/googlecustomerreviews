@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Mamis_GoogleCustomerReviews>
+            <version>1.0.0</version>
+        </Mamis_GoogleCustomerReviews>
+    </modules>
+
+    <global>
+        <models>
+            <mamis_googlecustomerreviews>
+                <class>Mamis_GoogleCustomerReviews_Model</class>
+            </mamis_googlecustomerreviews>
+        </models>
+
+        <blocks>
+            <mamis_googlecustomerreviews>
+                <class>Mamis_GoogleCustomerReviews_Block</class>
+            </mamis_googlecustomerreviews>
+        </blocks>
+
+        <helpers>
+            <mamis_googlecustomerreviews>
+                <class>Mamis_GoogleCustomerReviews_Helper</class>
+            </mamis_googlecustomerreviews>
+        </helpers>
+    </global>
+
+    <frontend>
+        <layout>
+            <updates>
+                <mamis_googlecustomerreviews>
+                    <file>mamis_googlecustomerreviews.xml</file>
+                </mamis_googlecustomerreviews>
+            </updates>
+        </layout>
+
+        <events>
+            <checkout_onepage_controller_success_action>
+                <observers>
+                    <mamis_googlecustomerreviews>
+                        <class>mamis_googlecustomerreviews/observer</class>
+                        <method>setGoogleCustomerReviewsOnOrderSuccessPageView</method>
+                    </mamis_googlecustomerreviews>
+                </observers>
+            </checkout_onepage_controller_success_action>
+        </events>
+    </frontend>
+
+    <default>
+        <mamis_googlecustomerreviews>
+            <badge>
+                <active>0</active>
+                <badge_position>BOTTOM_LEFT</badge_position>
+            </badge>
+
+            <opt_in>
+                <active>0</active>
+                <estimated_delivery_days>3</estimated_delivery_days>
+                <opt_in_style>CENTER_DIALOG</opt_in_style>
+                <send_products>0</send_products>
+            </opt_in>
+        </mamis_googlecustomerreviews>
+    </default>
+</config>

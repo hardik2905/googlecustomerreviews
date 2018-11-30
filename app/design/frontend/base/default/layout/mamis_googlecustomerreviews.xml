@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Mamis.IT
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is available through the world-wide-web at this URL:
+ * http://www.mamis.com.au/licencing
+ *
+ * @category   Mamis
+ * @copyright  Copyright (c) 2016 by Mamis.IT (http://www.mamis.com.au)
+ * @author     Matthew Muscat <matthew@mamis.com.au>
+ * @license    http://www.mamis.com.au/licencing
+ */
+-->
+<layout version="0.1.0">
+    <default>
+        <reference name="before_body_end">
+            <block type="mamis_googlecustomerreviews/badge" name="googlecustomerreviews.badge" template="mamis/googlecustomerreviews/badge.phtml" />
+        </reference>
+    </default>
+
+    <checkout_onepage_success>
+        <reference name="before_body_end">
+            <block type="mamis_googlecustomerreviews/optin" name="googlecustomerreviews.reviews.optin" template="mamis/googlecustomerreviews/optin.phtml" after="googlecustomerreviews.badge" />
+        </reference>
+    </checkout_onepage_success>
+</layout>

@@ -1,0 +1,43 @@
+<?php
+/**
+ * Mamis.IT
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is available through the world-wide-web at this URL:
+ * http://www.mamis.com.au/licencing
+ *
+ * @category   Mamis
+ * @copyright  Copyright (c) 2016 by Mamis.IT Pty Ltd (http://www.mamis.com.au)
+ * @author     Matthew Muscat <matthew@mamis.com.au>
+ * @license    http://www.mamis.com.au/licencing
+ */
+?>
+<!-- BEGIN GCR Badge Code -->
+<script src="https://apis.google.com/js/platform.js?onload=renderBadge"
+  async defer>
+</script>
+
+<script>
+  window.renderBadge = function() {
+    var customContainer = "<?php echo $this->getBadgeContainer() ?>";
+    if (!customContainer || 0 === customContainer.length) {
+        ratingBadgeContainer = document.createElement("div");
+        document.body.appendChild(ratingBadgeContainer);
+    }
+    else {
+        ratingBadgeContainer = document.getElementById(customContainer);
+    }
+    window.gapi.load('ratingbadge', function() {
+    window.gapi.ratingbadge.render(
+        ratingBadgeContainer, {
+        // REQUIRED
+        "merchant_id": <?php echo $this->jsQuoteEscape($this->getMerchantId()) ?>,
+        // OPTIONAL
+        "position": "<?php echo $this->jsQuoteEscape($this->getBadgePosition()) ?>"
+        });
+    });
+  }
+</script>
+<!-- END GCR Badge Code -->
